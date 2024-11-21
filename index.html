@@ -263,16 +263,19 @@ document.addEventListener('click', (event) => {
         offScreenMenu.classList.remove('active');
     }
 });
-       const slider = document.querySelector('.slider');
+       // Select slider and slides
+const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
-let currentIndex = 0;
 
+let currentIndex = 0; // Current slide index
+
+// Function to slide horizontally
 function autoSlide() {
-  currentIndex = (currentIndex + 1) % slides.length;
-  slider.style.transform = `translateY(-${currentIndex * 300}px)`; // Move vertically
+  currentIndex = (currentIndex + 1) % slides.length; // Loop through slides
+  slider.style.transform = `translateX(-${currentIndex * 100}%)`; // Slide left
 }
 
-// Automatically slide every 3 seconds
+// Auto-slide every 3 seconds
 setInterval(autoSlide, 3000);
 
 

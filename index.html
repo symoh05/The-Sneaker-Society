@@ -268,17 +268,27 @@ document.addEventListener('click', (event) => {
         offScreenMenu.classList.remove('active');
     }
 });
-      let currentIndex = 0;
+      const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
 
-function showNextSlide() {
-  const slider = document.querySelector('.slider');
-  const slides = document.querySelectorAll('.slide');
-  currentIndex = (currentIndex + 1) % slides.length;
+let currentIndex = 0;
+
+function updateSlider() {
   slider.style.transform = `translateX(-${currentIndex * 100}%)`;
 }
 
-// Auto-slide every 3 seconds
-setInterval(showNextSlide, 3000);
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+  updateSlider();
+});
+
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+  updateSlider();
+});
+
       
 </script>
 </body>

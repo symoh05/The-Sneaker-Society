@@ -516,26 +516,3 @@ h2 {
   font-size: 1rem;
   color: #555;
 }
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  h2 {
-    font-size: 1.5rem; /* Smaller heading text */
-  }
-
-  .slider-container {
-    height: 300px; /* Adjust height for mobile */
-  }
-
-  .product img {
-    width: 80%; /* Resize images for smaller devices */
-  }
-
-  .product h3 {
-    font-size: 1rem; /* Smaller product titles */
-  }
-
-  .product p {
-    font-size: 0.9rem;
-  }
-}

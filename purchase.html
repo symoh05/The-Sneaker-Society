@@ -1,4 +1,46 @@
- <form id="purchase-form" onsubmit="sendPurchaseData(event)">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Sneaker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" id="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav>
+        <!-- Hamburger Menu -->
+        <div class="ham-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Off-Screen Menu (Initially hidden) -->
+        <div class="off-screen-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Our services</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <div class="logo">
+            <h1>Sneaker Society</h1>
+        </div>
+    </header>
+
+    <main>
+        <h2>Complete Your Purchase</h2>
+
+        <form id="purchase-form" onsubmit="sendPurchaseData(event)">
             <div>
                 <label for="product-name">Product Name</label>
                 <input type="text" id="product-name" name="product-name" readonly>
@@ -21,10 +63,8 @@
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            <div>
-                <label for="whatsapp">Your WhatsApp Number</label>
-                <input type="text" id="whatsapp" name="whatsapp" required>
-            </div>
+
+
             <div>
                 <label for="location">Your Location</label>
                 <input type="text" id="location" name="location" required>
@@ -38,3 +78,77 @@
             <p>Your order has been successfully submitted. We will contact you soon.</p>
         </div>
     </main>
+
+    <footer>
+        <p>&copy; 2024 Sneaker Shop</p>
+    </footer>
+
+    <script>
+         // Select the hamburger menu and off-screen menu
+const hamMenu = document.querySelector('.ham-menu');
+const offScreenMenu = document.querySelector('.off-screen-menu');
+
+// Toggle the menu when clicking on the hamburger menu
+hamMenu.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevent the event from bubbling up
+    hamMenu.classList.toggle('active');
+    offScreenMenu.classList.toggle('active');
+});
+
+// Close the menu if you click outside the menu
+document.addEventListener('click', (event) => {
+    if (!hamMenu.contains(event.target) && !offScreenMenu.contains(event.target)) {
+        hamMenu.classList.remove('active');
+        offScreenMenu.classList.remove('active');
+    }
+});
+        // Parse the URL to retrieve product details
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('product-name').value = urlParams.get('name');
+        document.getElementById('product-size').value = urlParams.get('size');
+        document.getElementById('product-color').value = urlParams.get('color');
+        document.getElementById('product-price').value = `${urlParams.get('price')} Ksh`;
+
+        // Send data to WhatsApp
+        function sendPurchaseData(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Retrieve form data
+            const name = document.getElementById('name').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const location = document.getElementById('location').value;
+            const productName = document.getElementById('product-name').value;
+            const productSize = document.getElementById('product-size').value;
+            const productColor = document.getElementById('product-color').value;
+            const productPrice = document.getElementById('product-price').value;
+
+            // WhatsApp Message URL with formatted message as a list, and bold/italic formatting
+            const whatsappMessage = `Hello, I would like to purchase the following items:\n\n` +
+                                    `*Product Name:* ${productName}\n` +
+                                    `*Size:* ${productSize}\n` +
+                                    `*Color:* ${productColor}\n` +
+                                    `*Price:* ${productPrice}\n\n` +
+                                    `*Name:* ${name}\n` +
+                                    `*WhatsApp:* ${whatsapp}\n` +
+                                    `*Location:* ${location}`;
+
+            const whatsappURL = `https://wa.me/254777992666?text=${encodeURIComponent(whatsappMessage)}`;
+
+            // Open the WhatsApp message link and pre-populate the message
+            window.open(whatsappURL, "_blank");
+
+            // Show Thank You message
+            document.getElementById('thank-you-message').style.display = "block";
+            document.getElementById('user-name').textContent = name;
+
+            // Optionally reset form
+            document.getElementById('purchase-form').reset();
+
+            // Redirect after 5 seconds (adjust timing as needed)
+            setTimeout(function() {
+                window.location.href = "https://symoho5.github.io/sneakerssociety/index.html"; // Replace with your actual website URL
+            }, 5000); // 5 seconds delay
+        }
+    </script>
+</body>
+</html>

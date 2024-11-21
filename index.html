@@ -41,42 +41,6 @@
         <input type="text" id="search-bar" placeholder="Search products...">
         <button id="search-button">Search</button>
         <div id="suggestions" class="suggestions-container"></div> <!-- Suggestions container -->
-
-        
-          <div class="container slider-section">
-    <h2>Featured Products</h2>
-    <div class="slider-container">
-      <div class="slider">
-        <!-- Slide 1 -->
-        <div class="slide">
-          <div class="product">
-            <img src="images/product1.jpg" alt="Product 1">
-            <h3>Product 1</h3>
-            <p>Ksh 2,700</p>
-          </div>
-        </div>
-        <!-- Slide 2 -->
-        <div class="slide">
-          <div class="product">
-            <img src="images/product2.jpg" alt="Product 2">
-            <h3>Product 2</h3>
-            <p>Ksh 3,500</p>
-          </div>
-        </div>
-        <!-- Slide 3 -->
-        <div class="slide">
-          <div class="product">
-            <img src="images/product3.jpg" alt="Product 3">
-            <h3>Product 3</h3>
-            <p>Ksh 4,000</p>
-          </div>
-        </div>
-      </div>
-    </div>
-          </div>
-
-
-
     <main>
         <div class="product-container">
             <!-- Product 1 -->
@@ -263,24 +227,6 @@ document.addEventListener('click', (event) => {
         offScreenMenu.classList.remove('active');
     }
 });
-       // Select slider and slides
-const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slide');
-
-let currentIndex = 0; // Current slide index
-
-// Function to slide horizontally
-function autoSlide() {
-  currentIndex = (currentIndex + 1) % slides.length; // Loop through slides
-  slider.style.transform = `translateX(-${currentIndex * 100}%)`; // Slide left
-}
-
-// Auto-slide every 3 seconds
-setInterval(autoSlide, 3000);
-
-
-
-      
 </script>
 </body>
 </html>

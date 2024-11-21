@@ -448,38 +448,61 @@ h2 {
 }
 
 /* General Styles */
-.container.slider-section {
-  text-align: center;
-  margin: 20px auto;
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
 
+.container.slider-section {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%; /* Full width */
+  padding: 20px 10px; /* Add slight padding */
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Slider Container */
 .slider-container {
   position: relative;
-  overflow: hidden; /* Ensure products don't overflow */
-  height: 300px; /* Adjust based on your product size */
-  width: 80%;
+  overflow: hidden; /* Ensures slides stay within the screen */
+  width: 100%; /* Full width */
+  height: 350px; /* Adjust based on product size */
   margin: 0 auto;
-  border: 1px solid #ddd;
   border-radius: 10px;
 }
 
 .slider {
-  display: flex;
-  flex-direction: column; /* Stack slides vertically */
-  transition: transform 0.5s ease-in-out; /* Smooth transition */
+  display: flex; /* Horizontal stacking */
+  transition: transform 0.5s ease-in-out; /* Smooth sliding */
+  width: calc(100% * 3); /* Width of all slides combined */
 }
 
 .slide {
-  height: 300px; /* Match the container height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 0 0 100%; /* Each slide takes full width of the container */
+  box-sizing: border-box;
   text-align: center;
 }
 
+/* Product Styling */
+.product {
+  width: 100%; /* Full width of parent */
+  text-align: center;
+  box-sizing: border-box;
+}
+
 .product img {
-  width: 150px;
-  height: auto;
+  max-width: 100%; /* Prevents overflow */
+  height: auto; /* Maintain aspect ratio */
   margin-bottom: 10px;
 }
 
@@ -492,4 +515,27 @@ h2 {
   margin: 5px 0;
   font-size: 1rem;
   color: #555;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem; /* Smaller heading text */
+  }
+
+  .slider-container {
+    height: 300px; /* Adjust height for mobile */
+  }
+
+  .product img {
+    width: 80%; /* Resize images for smaller devices */
+  }
+
+  .product h3 {
+    font-size: 1rem; /* Smaller product titles */
+  }
+
+  .product p {
+    font-size: 0.9rem;
+  }
 }

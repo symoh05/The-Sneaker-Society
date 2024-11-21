@@ -41,8 +41,9 @@
         <input type="text" id="search-bar" placeholder="Search products...">
         <button id="search-button">Search</button>
         <div id="suggestions" class="suggestions-container"></div> <!-- Suggestions container -->
-    <!-- Slider Container -->
-<div class="container slider-section">
+
+        
+        <div class="container slider-section">
   <h2>Featured Products</h2>
   <div class="slider-container">
     <div class="slider">
@@ -73,6 +74,7 @@
     </div>
   </div>
 </div>
+
 
 
     <main>
@@ -261,17 +263,18 @@ document.addEventListener('click', (event) => {
         offScreenMenu.classList.remove('active');
     }
 });
-      const slider = document.querySelector('.slider');
+       const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
 let currentIndex = 0;
 
 function autoSlide() {
   currentIndex = (currentIndex + 1) % slides.length;
-  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  slider.style.transform = `translateY(-${currentIndex * 100}%)`;
 }
 
 // Automatically slide every 3 seconds
 setInterval(autoSlide, 3000);
+
 
 
       

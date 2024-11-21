@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sneaker Store</title>
+    <title>Purchase Sneaker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,99 +14,100 @@
     </header>
 
     <main>
-        <div class="product-container">
-            <!-- Product 1 -->
-            <div class="product">
-                <img src="sneaker1.jpg" alt="Nike Air Max">
-                <h3>Nike Air Max</h3>
-                <p>Ksh 15,000</p>
-                <button class="buy-now" onclick="window.location.href='purchase.html?name=Nike%20Air%20Max&price=15000&color=Red&size=10'">Buy Now</button>
+        <h2>Complete Your Purchase</h2>
+
+        <form id="purchase-form" onsubmit="sendPurchaseData(event)">
+            <div>
+                <label for="product-name">Product Name</label>
+                <input type="text" id="product-name" name="product-name" readonly>
+            </div>
+            <div>
+                <label for="product-size">Size</label>
+                <input type="text" id="product-size" name="product-size" readonly>
+            </div>
+            <div>
+                <label for="product-color">Color</label>
+                <input type="text" id="product-color" name="product-color" readonly>
+            </div>
+            <div>
+                <label for="product-price">Price</label>
+                <input type="text" id="product-price" name="product-price" readonly>
             </div>
 
-            <!-- Product 2 -->
-            <div class="product">
-                <img src="sneaker2.jpg" alt="Adidas Ultraboost">
-                <h3>Adidas Ultraboost</h3>
-                <p>Ksh 18,000</p>
-                <button class="buy-now" onclick="window.location.href='purchase.html?name=Adidas%20Ultraboost&price=18000&color=Blue&size=9'">Buy Now</button>
+            <div>
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="whatsapp">Your WhatsApp Number</label>
+                <input type="text" id="whatsapp" name="whatsapp" required>
+            </div>
+            <div>
+                <label for="location">Your Location</label>
+                <input type="text" id="location" name="location" required>
             </div>
 
-            <!-- Product 3 -->
-            <div class="product">
-                <img src="sneaker3.jpg" alt="Puma RS-X">
-                <h3>Puma RS-X</h3>
-                <p>Ksh 13,500</p>
-                <button class="buy-now" onclick="window.location.href='purchase.html?name=Puma%20RS-X&price=13500&color=Black&size=11'">Buy Now</button>
-            </div>
+            <button type="submit">Submit Purchase</button>
+        </form>
 
-            <!-- Product 4 -->
-            <div class="product">
-                <img src="sneaker4.jpg" alt="Reebok Classic">
-                <h3>Reebok Classic</h3>
-                <p>Ksh 12,000</p>
-                <button class="buy-now" onclick="window.location.href='purchase.html?name=Reebok%20Classic&price=12000&color=White&size=10'">Buy Now</button>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="product">
-                <img src="sneaker5.jpg" alt="New Balance 574">
-                <h3>New Balance 574</h3>
-                <p>Ksh 14,000</p>
-                <button class="buy-now" onclick="window.location.href='purchase.html?name=New%20Balance%20574&price=14000&color=Grey&size=8'">Buy Now</button>
-            </div>
-
-            <!-- Product 6 -->
-            <div class="product">
-                <img src="sneaker6.jpg" alt="Vans Old Skool">
-                <h3>Vans Old Skool</h3>
-                <p>Ksh 9,500</p>
-                <button class="buy-now" onclick="window.location.href='purchase.html?name=Vans%20Old%20Skool&price=9500&color=Black&size=9'">Buy Now</button>
-            </div>
-
-            <!-- Product 7 -->
-            <div class="product">
-                <img src="sneaker7.jpg" alt="Under Armour HOVR">
-                <h3>Under Armour HOVR</h3>
-                <p>Ksh 17,000</p>
-                <button class="buy-now" onclick="window.location.href='purchase.html?name=Under%20Armour%20HOVR&price=17000&color=Green&size=11'">Buy Now</button>
-            </div>
-
-            <!-- Product 8 -->
-            <div class="product">
-                <img src="sneaker8.jpg" alt="Asics Gel Kayano">
-                <h3>Asics Gel Kayano</h3>
-                <p>Ksh 16,500</p>
-                <button class="buy-now" onclick="window.location.href='purchase.html?name=Asics%20Gel%20Kayano&price=16500&color=Blue&size=8'">Buy Now</button>
-            </div>
-
-            <!-- Product 9 -->
-            <div class="product">
-                <img src="sneaker9.jpg" alt="Fila Disruptor">
-                <h3>Fila Disruptor</h3>
-                <p>Ksh 11,500</p>
-                <button class="buy-now" onclick="window.location.href='purchase.html?name=Fila%20Disruptor&price=11500&color=White&size=9'">Buy Now</button>
-            </div>
-
-            <!-- Product 10 -->
-            <div class="product">
-                <img src="sneaker10.jpg" alt="Nike Air Force 1">
-                <h3>Nike Air Force 1</h3>
-                <p>Ksh 14,500</p>
-                <button class="buy-now" onclick="window.location.href='purchase.html?name=Nike%20Air%20Force%201&price=14500&color=White&size=10'">Buy Now</button>
-            </div>
-
-            <!-- Product 11 -->
-            <div class="product">
-                <img src="sneaker11.jpg" alt="Converse Chuck Taylor">
-                <h3>Converse Chuck Taylor</h3>
-                <p>Ksh 8,000</p>
-                <button class="buy-now" onclick="window.location.href='purchase.html?name=Converse%20Chuck%20Taylor&price=8000&color=Black&size=7'">Buy Now</button>
-            </div>
+        <div id="thank-you-message" style="display: none; text-align: center; margin-top: 20px;">
+            <h3>Thank You, <span id="user-name"></span>!</h3>
+            <p>Your order has been successfully submitted. We will contact you soon.</p>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2024 Sneaker Shop</p>
     </footer>
+
+    <script>
+        // Parse the URL to retrieve product details
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('product-name').value = urlParams.get('name');
+        document.getElementById('product-size').value = urlParams.get('size');
+        document.getElementById('product-color').value = urlParams.get('color');
+        document.getElementById('product-price').value = `${urlParams.get('price')} Ksh`;
+
+        // Send data to WhatsApp
+        function sendPurchaseData(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Retrieve form data
+            const name = document.getElementById('name').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const location = document.getElementById('location').value;
+            const productName = document.getElementById('product-name').value;
+            const productSize = document.getElementById('product-size').value;
+            const productColor = document.getElementById('product-color').value;
+            const productPrice = document.getElementById('product-price').value;
+
+            // WhatsApp Message URL with formatted message as a list, and bold/italic formatting
+            const whatsappMessage = `Hello, I would like to purchase the following items:\n\n` +
+                                    `*Product Name:* ${productName}\n` +
+                                    `*Size:* ${productSize}\n` +
+                                    `*Color:* ${productColor}\n` +
+                                    `*Price:* ${productPrice}\n\n` +
+                                    `_Name:_ ${name}\n` +
+                                    `_WhatsApp:_ ${whatsapp}\n` +
+                                    `_Location:_ ${location}`;
+
+            const whatsappURL = `https://wa.me/254777992666?text=${encodeURIComponent(whatsappMessage)}`;
+
+            // Open the WhatsApp message link and pre-populate the message
+            window.open(whatsappURL, "_blank");
+
+            // Show Thank You message
+            document.getElementById('thank-you-message').style.display = "block";
+            document.getElementById('user-name').textContent = name;
+
+            // Optionally reset form
+            document.getElementById('purchase-form').reset();
+
+            // Redirect after 10 seconds (adjust timing if needed)
+            setTimeout(function() {
+                window.location.href = "https://www.yourwebsite.com"; // Replace with your actual website URL
+            }, 10000); // 10 seconds delay
+        }
+    </script>
 </body>
 </html>

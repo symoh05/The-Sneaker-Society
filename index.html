@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchase Sneaker</title>
+    <title>Sneaker Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Hamburger Menu -->
-    <div class="hamburger-menu" id="hamburger-icon">
+     <!-- Hamburger Menu -->
+     <div class="hamburger-menu" id="hamburger-icon">
         <span></span>
         <span></span>
         <span></span>
@@ -27,7 +27,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Our services</a></li>
-                <li><a href="contact-us.html">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -36,59 +36,182 @@
             <h1>Sneaker Society</h1>
         </div>
     </header>
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search products...">
+        <button id="search-button">Search</button>
+        <div id="suggestions" class="suggestions-container"></div> <!-- Suggestions container -->
+    </div>
 
     <main>
-        <h2>Complete Your Purchase</h2>
-
-        <form id="purchase-form" onsubmit="sendPurchaseData(event)">
-            <div>
-                <label for="product-name">Product Name</label>
-                <input type="text" id="product-name" name="product-name" readonly>
-            </div>
-            <div>
-                <label for="product-price">Price</label>
-                <input type="text" id="product-price" name="product-price" readonly>
-            </div>
-            <div>
-                <label for="product-size">Size</label>
-                <input type="text" id="product-size" name="product-size" required>
-            </div>
-            <div>
-                <label for="product-color">Color</label>
-                <input type="text" id="product-color" name="product-color" required>
-            </div>
-           
-
-            <div>
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div>
-
-                <label for="whatsapp">Your WhatsApp Number</label>
-                <input type="text" id="whatsapp" name="whatsapp" required>
+        <div class="product-container">
+            <!-- Product 1 -->
+            <div class="product">
+                <img src="img/530.png" alt="Nike Air Max">
+                <h3>530 Creame</h3>
+                <p>Ksh 2,800</p>
+                <button class="buy-now" onclick="window.location.href='purchase.html?name=Nike%20Air%20Max&price=2,800'">Buy Now</button>
             </div>
 
-            <div>
-                <label for="location">Your Location</label>
-                <input type="text" id="location" name="location" required>
+            <!-- Product 2 -->
+            <div class="product">
+                <img src="img/adidus samba.png" alt="Adidas Samba">
+                <h3>Adidas Samba</h3>
+                <p>Ksh 2,499</p>
+                <button class="buy-now" onclick="window.location.href='purchase.html?name=Adidas%20Samba&price=2,499'">Buy Now</button>
             </div>
 
-            <button type="submit">Submit Purchase</button>
-        </form>
+            <!-- Product 3 -->
+            <div class="product">
+                <img src="img/airforce northface.png" alt="Puma RS-X">
+                <h3>Air Force Northface</h3>
+                <p>Ksh 2,700</p>
+                <button class="buy-now" onclick="window.location.href='purchase.html?name=Air%20Force&price=2,700'">Buy Now</button>
+            </div>
 
-        <div id="thank-you-message" style="display: none; text-align: center; margin-top: 20px;">
-            <h3>Thank You, <span id="user-name"></span>!</h3>
-            <p>Your order has been successfully submitted. We will contact you soon.</p>
+            <!-- Product 4 -->
+            <div class="product">
+                <img src="img/gliter sandles.png" alt="Reebok Classic">
+                <h3>Glitter sandles</h3>
+                <p>Ksh 1,250</p>
+                <button class="buy-now" onclick="window.location.href='purchase.html?name=Glitter%20Sandles&price=1,250'">Buy Now</button>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product">
+                <img src="img/jordan 1 low.png" alt="New Balance 574">
+                <h3>Jordan 1 low</h3>
+                <p>Ksh 2,999</p>
+                <button class="buy-now" onclick="window.location.href='purchase.html?name=Jordan%20 1%low&price=2,999'">Buy Now</button>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product">
+                <img src="img/jordan 11.png" alt="Vans Old Skool">
+                <h3>Jordan 11</h3>
+                <p>Ksh 2,900</p>
+                <button class="buy-now" onclick="window.location.href='purchase.html?name=Jordan%11&price=2,900'">Buy Now</button>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product">
+                <img src="img/newbalace 530.png" alt="Under Armour HOVR">
+                <h3>New balance 530</h3>
+                <p>Ksh 2,899</p>
+                <button class="buy-now" onclick="window.location.href='purchase.html?name=New%20Balance%20 530&price=2,899'">Buy Now</button>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product">
+                <img src="img/nickghostrider.png" alt="Asics Gel Kayano">
+                <h3>Nick ghost rider</h3>
+                <p>Ksh 2,800</p>
+                <button class="buy-now" onclick="window.location.href='purchase.html?name=Nike%20Ghost%20Rider&price=2,800'">Buy Now</button>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product">
+                <img src="img/nikeairmax90.png" alt="Fila Disruptor">
+                <h3>Nike Air Max 90</h3>
+                <p>Ksh 2,750</p>
+                <button class="buy-now" onclick="window.location.href='purchase.html?name=Nike%20Air%20MAx%20 90&price=2,750'">Buy Now</button>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="product">
+                <img src="img/samba xl.png" alt="Nike Air Force 1">
+                <h3>Samba xl</h3>
+                <p>Ksh 2,700</p>
+                <button class="buy-now" onclick="window.location.href='purchase.html?name=Samba%20 xl&price=2,700'">Buy Now</button>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="product">
+                <img src="img/samba.png" alt="Converse Chuck Taylor">
+                <h3>Samba d sole</h3>
+                <p>Ksh 3,100</p>
+                <button class="buy-now" onclick="window.location.href='purchase.html?name=Samba%20d%20sole&price=3,100'">Buy Now</button>
+            </div>
+            <div class="product">
+                <img src="img/sb duck lv.png" alt="Converse Chuck Taylor">
+                <h3>Sb ducks</h3>
+                <p>Ksh 2,900</p>
+                <button class="buy-now" onclick="window.location.href='purchase.html?name=Sb%20ducks&price=2,900'">Buy Now</button>
+            </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Sneaker Shop</p>
+        <p>&copy; 2024 Sneaker Society.</p>
     </footer>
-
-    <script>
-         // Select the hamburger menu and off-screen menu
+        <script>
+            document.getElementById("search-bar").addEventListener("input", function() {
+                const searchTerm = this.value.toLowerCase();
+                const products = document.querySelectorAll(".product");
+                const suggestionsContainer = document.getElementById("suggestions");
+                
+                // If there's no search term, hide the suggestions
+                if (searchTerm === "") {
+                    suggestionsContainer.style.display = "none";
+                    return;
+                }
+    
+                const matchingProducts = [];
+    
+                // Loop through products and collect the ones that match
+                products.forEach(product => {
+                    const productName = product.querySelector("h3").textContent.toLowerCase();
+                    if (productName.includes(searchTerm)) {
+                        matchingProducts.push(productName);
+                    }
+                });
+    
+                // If no matching products, hide the suggestions
+                if (matchingProducts.length === 0) {
+                    suggestionsContainer.style.display = "none";
+                    return;
+                }
+    
+                // Clear previous suggestions
+                suggestionsContainer.innerHTML = "";
+    
+                // Display matching product names as suggestions
+                matchingProducts.forEach(name => {
+                    const suggestionDiv = document.createElement("div");
+                    suggestionDiv.textContent = name;
+                    suggestionDiv.addEventListener("click", function() {
+                        document.getElementById("search-bar").value = name; // Set the value to the clicked suggestion
+                        suggestionsContainer.style.display = "none"; // Hide suggestions
+                        filterProducts(name); // Filter products based on the suggestion
+                    });
+                    suggestionsContainer.appendChild(suggestionDiv);
+                });
+    
+                // Show the suggestions container
+                suggestionsContainer.style.display = "block";
+            });
+    
+            // Filter products based on the search input
+            function filterProducts(searchTerm) {
+                const products = document.querySelectorAll(".product");
+                
+                products.forEach(product => {
+                    const productName = product.querySelector("h3").textContent.toLowerCase();
+                    if (productName.includes(searchTerm.toLowerCase())) {
+                        product.style.display = "block";
+                    } else {
+                        product.style.display = "none";
+                    }
+                });
+            }
+    
+            // Hide suggestions when clicking outside
+            document.addEventListener("click", function(event) {
+                if (!event.target.closest(".search-container")) {
+                    document.getElementById("suggestions").style.display = "none";
+                }
+            });
+            // Select the hamburger menu and off-screen menu
 const hamMenu = document.querySelector('.ham-menu');
 const offScreenMenu = document.querySelector('.off-screen-menu');
 
@@ -105,54 +228,6 @@ document.addEventListener('click', (event) => {
         hamMenu.classList.remove('active');
         offScreenMenu.classList.remove('active');
     }
-});
-        // Parse the URL to retrieve product details
-        const urlParams = new URLSearchParams(window.location.search);
-        document.getElementById('product-name').value = urlParams.get('name');
-        document.getElementById('product-size').value = urlParams.get('size');
-        document.getElementById('product-color').value = urlParams.get('color');
-        document.getElementById('product-price').value = `${urlParams.get('price')} Ksh`;
-
-        // Send data to WhatsApp
-        function sendPurchaseData(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Retrieve form data
-            const name = document.getElementById('name').value;
-            const whatsapp = document.getElementById('whatsapp').value;
-            const location = document.getElementById('location').value;
-            const productName = document.getElementById('product-name').value;
-            const productSize = document.getElementById('product-size').value;
-            const productColor = document.getElementById('product-color').value;
-            const productPrice = document.getElementById('product-price').value;
-
-            // WhatsApp Message URL with formatted message as a list, and bold/italic formatting
-            const whatsappMessage = `Hello, I would like to purchase the following items:\n\n` +
-                                    `*Product Name:* ${productName}\n` +
-                                    `*Size:* ${productSize}\n` +
-                                    `*Color:* ${productColor}\n` +
-                                    `*Price:* ${productPrice}\n\n` +
-                                    `*Name:* ${name}\n` +
-                                    `*WhatsApp:* ${whatsapp}\n` +
-                                    `*Location:* ${location}`;
-
-            const whatsappURL = `https://wa.me/254777992666?text=${encodeURIComponent(whatsappMessage)}`;
-
-            // Open the WhatsApp message link and pre-populate the message
-            window.open(whatsappURL, "_blank");
-
-            // Show Thank You message
-            document.getElementById('thank-you-message').style.display = "block";
-            document.getElementById('user-name').textContent = name;
-
-            // Optionally reset form
-            document.getElementById('purchase-form').reset();
-
-            // Redirect after 5 seconds (adjust timing as needed)
-            setTimeout(function() {
-                window.location.href = "https://symoho5.github.io/sneakerssociety/index.html"; // Replace with your actual website URL
-            }, 5000); // 5 seconds delay
-        }
-    </script>
+});</script>
 </body>
 </html>

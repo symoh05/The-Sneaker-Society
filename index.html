@@ -43,7 +43,8 @@
         <div id="suggestions" class="suggestions-container"></div> <!-- Suggestions container -->
 
         
-        <div class="container slider-section">
+        <!-- Slider Container -->
+<div class="container slider-section">
   <h2>Featured Products</h2>
   <div class="slider-container">
     <div class="slider">
@@ -74,7 +75,6 @@
     </div>
   </div>
 </div>
-
 
 
     <main>
@@ -269,7 +269,7 @@ let currentIndex = 0;
 
 function autoSlide() {
   currentIndex = (currentIndex + 1) % slides.length;
-  slider.style.transform = `translateY(-${currentIndex * 100}%)`;
+  slider.style.transform = `translateY(-${currentIndex * 300}px)`; // Move vertically
 }
 
 // Automatically slide every 3 seconds

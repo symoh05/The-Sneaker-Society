@@ -1,38 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchase Sneaker</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <h1>Sneaker Society</h1>
-        </div>
-    </header>
-
-    <main>
-        <h2>Complete Your Purchase</h2>
-
-        <form id="purchase-form" onsubmit="sendPurchaseData(event)">
+ <form id="purchase-form" onsubmit="sendPurchaseData(event)">
             <div>
                 <label for="product-name">Product Name</label>
                 <input type="text" id="product-name" name="product-name" readonly>
             </div>
             <div>
-                <label for="product-size">Size</label>
-                <input type="text" id="product-size" name="product-size" readonly>
-            </div>
-            <div>
-                <label for="product-color">Color</label>
-                <input type="text" id="product-color" name="product-color" readonly>
-            </div>
-            <div>
                 <label for="product-price">Price</label>
                 <input type="text" id="product-price" name="product-price" readonly>
             </div>
+            <div>
+                <label for="product-size">Size</label>
+                <input type="text" id="product-size" name="product-size" required>
+            </div>
+            <div>
+                <label for="product-color">Color</label>
+                <input type="text" id="product-color" name="product-color" required>
+            </div>
+           
 
             <div>
                 <label for="name">Your Name</label>
@@ -55,59 +38,3 @@
             <p>Your order has been successfully submitted. We will contact you soon.</p>
         </div>
     </main>
-
-    <footer>
-        <p>&copy; 2024 Sneaker Shop</p>
-    </footer>
-
-    <script>
-        // Parse the URL to retrieve product details
-        const urlParams = new URLSearchParams(window.location.search);
-        document.getElementById('product-name').value = urlParams.get('name');
-        document.getElementById('product-size').value = urlParams.get('size');
-        document.getElementById('product-color').value = urlParams.get('color');
-        document.getElementById('product-price').value = `${urlParams.get('price')} Ksh`;
-
-        // Send data to WhatsApp
-        function sendPurchaseData(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Retrieve form data
-            const name = document.getElementById('name').value;
-            const whatsapp = document.getElementById('whatsapp').value;
-            const location = document.getElementById('location').value;
-            const productName = document.getElementById('product-name').value;
-            const productSize = document.getElementById('product-size').value;
-            const productColor = document.getElementById('product-color').value;
-            const productPrice = document.getElementById('product-price').value;
-
-            // WhatsApp Message URL with formatted message as a list, and bold/italic formatting
-            const whatsappMessage = `Hello, I would like to purchase the following items:\n\n` +
-                                    `*Product Name:* ${productName}\n` +
-                                    `*Size:* ${productSize}\n` +
-                                    `*Color:* ${productColor}\n` +
-                                    `*Price:* ${productPrice}\n\n` +
-                                    `*Name:* ${name}\n` +
-                                    `*WhatsApp:* ${whatsapp}\n` +
-                                    `*Location:* ${location}`;
-
-            const whatsappURL = `https://wa.me/254777992666?text=${encodeURIComponent(whatsappMessage)}`;
-
-            // Open the WhatsApp message link and pre-populate the message
-            window.open(whatsappURL, "_blank");
-
-            // Show Thank You message
-            document.getElementById('thank-you-message').style.display = "block";
-            document.getElementById('user-name').textContent = name;
-
-            // Optionally reset form
-            document.getElementById('purchase-form').reset();
-
-            // Redirect after 5 seconds (adjust timing as needed)
-            setTimeout(function() {
-                window.location.href = "https://www.yourwebsite.com"; // Replace with your actual website URL
-            }, 5000); // 5 seconds delay
-        }
-    </script>
-</body>
-</html>

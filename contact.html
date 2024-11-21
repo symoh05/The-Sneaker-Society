@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Sneaker Society</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hamburger-menu" id="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav>
+        <div class="ham-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="off-screen-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Our services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="logo">
+            <h1>Sneaker Society</h1>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need assistance, feel free to reach out to us:</p>
+            <h2>You Can call us on:</h2>
+            <p>0777992666</p>
+            <h2>Or Whatsapp us by clicking the link below</h2>
+            <a href="https://wa.me/254777992666" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #25D366; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                WhatsApp Us
+              </a>
+              
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sneaker Society.</p>
+    </footer>
+    <script>// Select the hamburger menu and off-screen menu
+        const hamMenu = document.querySelector('.ham-menu');
+        const offScreenMenu = document.querySelector('.off-screen-menu');
+        
+        // Toggle the menu when clicking on the hamburger menu
+        hamMenu.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent the event from bubbling up
+            hamMenu.classList.toggle('active');
+            offScreenMenu.classList.toggle('active');
+        });
+        
+        // Close the menu if you click outside the menu
+        document.addEventListener('click', (event) => {
+            if (!hamMenu.contains(event.target) && !offScreenMenu.contains(event.target)) {
+                hamMenu.classList.remove('active');
+                offScreenMenu.classList.remove('active');
+            }
+        });</script>
+</body>
+</html>

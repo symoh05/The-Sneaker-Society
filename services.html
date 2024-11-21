@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Sneaker Society</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hamburger-menu" id="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav>
+        <div class="ham-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="off-screen-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Our services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="logo">
+            <h1>Sneaker Society</h1>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Our Services</h2>
+            <p>At Sneaker Society, we offer top-notch services to ensure you get the best sneakers and experience:</p>
+            <ul>
+                <li><strong>Sneaker Customization:</strong> Get your sneakers personalized with unique designs and colors.</li>
+                <li><strong>Exclusive Collections:</strong> Access limited-edition sneakers from renowned brands.</li>
+                <li><strong>Fast Delivery:</strong> We offer fast and reliable delivery options for all our customers.</li>
+                <li><strong>Customer Support:</strong> Our dedicated support team is available 24/7 to assist you.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sneaker Society.</p>
+    </footer>
+    <script>// Select the hamburger menu and off-screen menu
+        const hamMenu = document.querySelector('.ham-menu');
+        const offScreenMenu = document.querySelector('.off-screen-menu');
+        
+        // Toggle the menu when clicking on the hamburger menu
+        hamMenu.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent the event from bubbling up
+            hamMenu.classList.toggle('active');
+            offScreenMenu.classList.toggle('active');
+        });
+        
+        // Close the menu if you click outside the menu
+        document.addEventListener('click', (event) => {
+            if (!hamMenu.contains(event.target) && !offScreenMenu.contains(event.target)) {
+                hamMenu.classList.remove('active');
+                offScreenMenu.classList.remove('active');
+            }
+        });</script>
+</body>
+</html>

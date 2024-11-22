@@ -44,6 +44,23 @@
     </div>
 
     <main>
+          <!-- Slider Container -->
+  <div class="container slider-section">
+    <h2>Featured Products</h2>
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide">
+          <img src="images/product1.jpg" alt="Product 1">
+        </div>
+        <div class="slide">
+          <img src="images/product2.jpg" alt="Product 2">
+        </div>
+        <div class="slide">
+          <img src="images/product3.jpg" alt="Product 3">
+        </div>
+      </div>
+    </div>
+  </div>
         <div class="product-container">
             <!-- Product 1 -->
             <div class="product">
@@ -228,6 +245,20 @@ document.addEventListener('click', (event) => {
         hamMenu.classList.remove('active');
         offScreenMenu.classList.remove('active');
     }
-});</script>
+});
+        let currentIndex = 0;
+
+function showNextSlide() {
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  currentIndex = (currentIndex + 1) % slides.length;
+  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// Auto-slide every 3 seconds
+setInterval(showNextSlide, 3000);
+
+        
+        </script>
 </body>
 </html>

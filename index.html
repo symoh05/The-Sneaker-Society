@@ -211,13 +211,50 @@
                     document.getElementById("suggestions").style.display = "none";
                 }
             });
-    
-            // Hamburger Menu Toggle
-            const hamburgerIcon = document.getElementById("hamburger-icon");
-            const offScreenMenu = document.querySelector(".off-screen-menu");
-            hamburgerIcon.addEventListener("click", function() {
-                offScreenMenu.classList.toggle("open");
-            });
+            // Select the hamburger menu and off-screen menu
+const hamMenu = document.querySelector('.ham-menu');
+const offScreenMenu = document.querySelector('.off-screen-menu');
+
+// Toggle the menu when clicking on the hamburger menu
+hamMenu.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevent the event from bubbling up
+    hamMenu.classList.toggle('active');
+    offScreenMenu.classList.toggle('active');
+});
+
+// Close the menu if you click outside the menu
+document.addEventListener('click', (event) => {
+    if (!hamMenu.contains(event.target) && !offScreenMenu.contains(event.target)) {
+        hamMenu.classList.remove('active');
+        offScreenMenu.classList.remove('active');
+    }
+});
+// JavaScript to auto-slide the carousel
+let currentIndex = 0;
+const products = document.querySelectorAll(".featured-products-carousel .product");
+const totalProducts = products.length;
+
+function slideCarousel() {
+    if (currentIndex < totalProducts - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0; // Loop back to the first product
+    }
+    updateCarousel();
+}
+
+function updateCarousel() {
+    const offset = -currentIndex * (products[0].offsetWidth + 20); // 20 is the gap between products
+    document.querySelector(".featured-products-carousel").style.transform = `translateX(${offset}px)`;
+}
+
+// Slide every 3 seconds
+setInterval(slideCarousel, 3000);
+
+
+
+
+
         </script>
 </body>
 </html>

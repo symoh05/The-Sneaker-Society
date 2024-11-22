@@ -582,8 +582,8 @@ h2 {
 
 .product img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 300px;
+  display: flex;
   border-radius: 8px;
 }
 

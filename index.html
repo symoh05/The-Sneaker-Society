@@ -44,23 +44,6 @@
     </div>
 
     <main>
-          <!-- Slider Container -->
-  <div class="container slider-section">
-    <h2>Featured Products</h2>
-    <div class="slider-container">
-      <div class="slider">
-        <div class="slide">
-          <img src="img/Korean Fashion Retro Casual Sneakers.jpeg" alt="Product 1">
-        </div>
-        <div class="slide">
-          <img src="img/𝐍𝐀𝐑𝐒✮®.jpeg" alt="Product 2">
-        </div>
-        <div class="slide">
-          <img src="img/graphics design.jpeg" alt="Product 3">
-        </div>
-      </div>
-    </div>
-  </div>
         <div class="product-container">
             <!-- Product 1 -->
             <div class="product">
@@ -228,37 +211,13 @@
                     document.getElementById("suggestions").style.display = "none";
                 }
             });
-            // Select the hamburger menu and off-screen menu
-const hamMenu = document.querySelector('.ham-menu');
-const offScreenMenu = document.querySelector('.off-screen-menu');
-
-// Toggle the menu when clicking on the hamburger menu
-hamMenu.addEventListener('click', (event) => {
-    event.stopPropagation(); // Prevent the event from bubbling up
-    hamMenu.classList.toggle('active');
-    offScreenMenu.classList.toggle('active');
-});
-
-// Close the menu if you click outside the menu
-document.addEventListener('click', (event) => {
-    if (!hamMenu.contains(event.target) && !offScreenMenu.contains(event.target)) {
-        hamMenu.classList.remove('active');
-        offScreenMenu.classList.remove('active');
-    }
-});
-        let currentIndex = 0;
-
-function showNextSlide() {
-  const slider = document.querySelector('.slider');
-  const slides = document.querySelectorAll('.slide');
-  currentIndex = (currentIndex + 1) % slides.length;
-  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-
-// Auto-slide every 3 seconds
-setInterval(showNextSlide, 3000);
-
-        
+    
+            // Hamburger Menu Toggle
+            const hamburgerIcon = document.getElementById("hamburger-icon");
+            const offScreenMenu = document.querySelector(".off-screen-menu");
+            hamburgerIcon.addEventListener("click", function() {
+                offScreenMenu.classList.toggle("open");
+            });
         </script>
 </body>
 </html>

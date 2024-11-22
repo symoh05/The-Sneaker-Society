@@ -60,22 +60,6 @@
     </div>
   </div>
 
-  <!-- Normal Products Section -->
-  <div class="container products-section">
-    <h2>All Products</h2>
-    <div class="products-grid">
-      <div class="product">
-        <img src="images/product4.jpg" alt="Product 4">
-        <p>Product 4</p>
-      </div>
-      <div class="product">
-        <img src="images/product5.jpg" alt="Product 5">
-        <p>Product 5</p>
-      </div>
-      <!-- Add more products as needed -->
-    </div>
-  </div>
-
     <main>
         <div class="product-container">
             <!-- Product 1 -->
@@ -262,30 +246,18 @@ document.addEventListener('click', (event) => {
         offScreenMenu.classList.remove('active');
     }
 });
-// JavaScript to auto-slide the carousel
+
 let currentIndex = 0;
-const products = document.querySelectorAll(".featured-products-carousel .product");
-const totalProducts = products.length;
 
-function slideCarousel() {
-    if (currentIndex < totalProducts - 1) {
-        currentIndex++;
-    } else {
-        currentIndex = 0; // Loop back to the first product
-    }
-    updateCarousel();
+function showNextSlide() {
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  currentIndex = (currentIndex + 1) % slides.length;
+  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
 }
 
-function updateCarousel() {
-    const offset = -currentIndex * (products[0].offsetWidth + 20); // 20 is the gap between products
-    document.querySelector(".featured-products-carousel").style.transform = `translateX(${offset}px)`;
-}
-
-// Slide every 3 seconds
-setInterval(slideCarousel, 3000);
-
-
-
+// Auto-slide every 3 seconds
+setInterval(showNextSlide, 3000);
 
 
         </script>

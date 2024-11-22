@@ -42,23 +42,24 @@
         <button id="search-button">Search</button>
         <div id="suggestions" class="suggestions-container"></div> <!-- Suggestions container -->
     </div>
-      <!-- Slider Container -->
+        <!-- Slider Container -->
   <div class="container slider-section">
     <h2>Featured Products</h2>
     <div class="slider-container">
       <div class="slider">
         <div class="slide">
-          <img src="img/airforce northface.png" alt="Product 1">
+          <img src="img/graphics design.jpeg" alt="Product 1">
         </div>
         <div class="slide">
-          <img src="img/jordan 1 low.png" alt="Product 2">
+          <img src="img/Korean Fashion Retro Casual Sneakers.jpeg" alt="Product 2">
         </div>
         <div class="slide">
-          <img src="img/nikeairmax90.png" alt="Product 3">
+          <img src="img/𝐍𝐀𝐑𝐒✮®.jpeg" alt="Product 3">
         </div>
       </div>
     </div>
   </div>
+
 
     <main>
         <div class="product-container">
@@ -182,18 +183,7 @@
                         matchingProducts.push(productName);
                     }
                 });
-                let currentIndex = 0;
-
-function showNextSlide() {
-  const slider = document.querySelector('.slider');
-  const slides = document.querySelectorAll('.slide');
-  currentIndex = (currentIndex + 1) % slides.length;
-  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-
-// Auto-slide every 3 seconds
-setInterval(showNextSlide, 3000);
-
+                
     
                 // If no matching products, hide the suggestions
                 if (matchingProducts.length === 0) {
@@ -258,6 +248,17 @@ document.addEventListener('click', (event) => {
         offScreenMenu.classList.remove('active');
     }
 });
+let currentIndex = 0;
+
+function showNextSlide() {
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  currentIndex = (currentIndex + 1) % slides.length;
+  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// Auto-slide every 3 seconds
+setInterval(showNextSlide, 3000);
 
 
         </script>

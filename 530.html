@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>530 Creame - Sneaker Society</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .product {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Style for image slider */
+        .image-slider {
+            width: 100%;
+            overflow: hidden; /* Hide overflow to show only one image at a time */
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .image-slider-container {
+            display: flex; /* Arrange images horizontally */
+            transition: transform 0.3s ease; /* Smooth transition when scrolling */
+        }
+
+        .image-slide {
+            min-width: 100%; /* Each image takes up the full width */
+            box-sizing: border-box;
+        }
+
+        .image-slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .buy-now {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .buy-now:hover {
+            background-color: #555;
+        }
+
+        /* Make the slider responsive */
+        @media (max-width: 768px) {
+            .product {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .image-slider {
+                width: 100%;
+            }
+
+            .image-slide {
+                min-width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Sneaker Society</h1>
+</header>
+
+<div class="product-container">
+    <!-- Product 530 Creame with Swipeable Images -->
+    <div class="product">
+        <div class="image-slider">
+            <div class="image-slider-container">
+                <!-- Image Slide 1 -->
+                <div class="image-slide">
+                    <img src="https://via.placeholder.com/300x200" alt="530 Creame - Front View">
+                </div>
+                <!-- Image Slide 2 -->
+                <div class="image-slide">
+                    <img src="https://via.placeholder.com/300x200/ff7f7f/333333" alt="530 Creame - Side View">
+                </div>
+                <!-- Image Slide 3 -->
+                <div class="image-slide">
+                    <img src="https://via.placeholder.com/300x200/7f7fff/333333" alt="530 Creame - Close-up View">
+                </div>
+            </div>
+        </div>
+        <h3>530 Creame</h3>
+        <p>Ksh 2,800</p>
+        <button class="buy-now" onclick="window.location.href='purchase.html?name=530%20Creame&price=2,800'">Buy Now</button>
+    </div>
+</div>
+
+<script>
+    // JavaScript for manual scroll/swipe functionality
+    document.querySelectorAll('.image-slider-container').forEach(sliderContainer => {
+        let isDragging = false;
+        let startX, scrollLeft;
+
+        // Handle mouse down event (for desktop users)
+        sliderContainer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - sliderContainer.offsetLeft;
+            scrollLeft = sliderContainer.scrollLeft;
+        });
+
+        // Handle mouse move event (for dragging)
+        sliderContainer.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault(); // Prevent text selection while dragging
+            const x = e.pageX - sliderContainer.offsetLeft;
+            const walk = (x - startX) * 3; // Adjust speed of scrolling
+            sliderContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // Handle mouse up event (stop dragging)
+        sliderContainer.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Handle mouse leave event (stop dragging if mouse leaves the area)
+        sliderContainer.addEventListener('mouseleave', () => {
+            isDragging = false;
+        });
+
+        // For touch events (for mobile users)
+        sliderContainer.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].pageX - sliderContainer.offsetLeft;
+            scrollLeft = sliderContainer.scrollLeft;
+        });
+
+        sliderContainer.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - sliderContainer.offsetLeft;
+            const walk = (x - startX) * 3;
+            sliderContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        sliderContainer.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+    });
+</script>
+
+</body>
+</html>

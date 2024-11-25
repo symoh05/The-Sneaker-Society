@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas Samba - Sneaker Society</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header with Logo and Navigation -->
+    <header>
+        <div class="logo">
+            <h1>Sneaker Society</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Our services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Product Details Section -->
+    <div class="product-details">
+        <div class="product-image">
+            <img src="img/adidus-samba.png" alt="Adidas Samba">
+        </div>
+        <div class="product-info">
+            <h2>Adidas Samba</h2>
+            <p class="description">
+                The Adidas Samba combines the iconic design of the classic football boot with modern materials, perfect for street style and sport.
+            </p>
+            <p class="price">Ksh 2,499</p>
+            <button class="buy-now" onclick="window.location.href='purchase.html?name=Adidas%20Samba&price=2,499'">Buy Now</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Sneaker Society.</p>
+    </footer>
+
+    <!-- Search Bar (Optional) -->
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search products...">
+        <button id="search-button">Search</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -201,17 +201,15 @@ footer p {
 }
 /* Off-Screen Menu Styles */
 .off-screen-menu {
-    background-color: rgb(71, 6, 71);
-    background-image: url;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: rgba(50, 50, 50, 0.6); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blurred background effect */
     color: rgb(248, 245, 245);
     height: 100vh;
     width: 250px; /* Menu width */
     position: fixed;
     top: 0;
-    z-index: 1000;
-    right: -250px;  /* Initially off-screen */
+    z-index: 10;
+    right: -250px; /* Initially off-screen */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -219,12 +217,12 @@ footer p {
     text-align: center;
     font-size: 1.5rem;
     transition: right 0.3s ease; /* Smooth slide-in effect */
-    
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
 }
 
 /* When the menu is active (slid in) */
 .off-screen-menu.active {
-    right: 0;  /* Slide the menu into view */
+    right: 0; /* Slide the menu into view */
 }
 
 .off-screen-menu ul {
@@ -240,7 +238,7 @@ footer p {
 }
 
 .off-screen-menu a {
-    color: rgb(8, 8, 8);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 1.5rem;
 }
@@ -252,7 +250,7 @@ footer p {
     margin-left: auto;
     position: relative;
     cursor: pointer;
-    z-index: 1000;  /* Ensures it stays on top */
+    z-index: 1000; /* Ensures it stays on top */
 }
 
 .ham-menu span {
@@ -282,16 +280,16 @@ footer p {
 /* When the hamburger menu is active */
 .ham-menu.active span:nth-child(1) {
     top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);  /* Rotate the top bar */
+    transform: translate(-50%, -50%) rotate(45deg); /* Rotate the top bar */
 }
 
 .ham-menu.active span:nth-child(2) {
-    opacity: 0;  /* Hide the middle bar */
+    opacity: 0; /* Hide the middle bar */
 }
 
 .ham-menu.active span:nth-child(3) {
     top: 50%;
-    transform: translate(-50%, 50%) rotate(-45deg);  /* Rotate the bottom bar */
+    transform: translate(-50%, 50%) rotate(-45deg); /* Rotate the bottom bar */
 }
 
 /* Make sure the header/nav is positioned correctly */
